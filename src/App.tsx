@@ -5,7 +5,7 @@
  */
 
 import './App.css'
-import List from './pages/List'
+import List from './pages/Manage/List'
 function App() {
   return (
     <>

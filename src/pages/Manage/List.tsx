@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
-import QuestionCard from '../components/QuestionCard'
-import questionList, { type QuestionItem } from '../sourceData/questionList'
+import QuestionCard from '../../components/QuestionCard'
+import questionList, { type QuestionItem } from '../../sourceData/questionList'
 const List: FC = () => {
   const [list, setList] = useState(questionList)
 
