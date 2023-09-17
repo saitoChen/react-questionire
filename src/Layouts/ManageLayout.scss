@@ -1,0 +1,10 @@
+.manage-layout__container {
+    display: flex;
+
+    .manage-layout__left {
+        width: 200px;
+    }
+    .manage-layout__right {
+        flex: 1
+    }
+}

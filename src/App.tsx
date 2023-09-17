@@ -5,13 +5,11 @@
  */
 
 import './App.css'
-import List from './pages/Manage/List'
+
+import { RouterProvider } from 'react-router-dom'
+import routerConfig from './router/index'
 function App() {
-  return (
-    <>
-      <List></List>
-    </>
-  )
+  return <RouterProvider router={routerConfig}></RouterProvider>
 }
 
 export default App

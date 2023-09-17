@@ -1,10 +1,12 @@
-import { FC } from 'react'
-import { Outlet } from 'react-router-dom'
 /*
  * @Author: chenjianfeng chenjianfeng9335@gmail.com
- * @Date: 2023-09-17 11:15:04
+ * @Date: 2023-09-17 11:28:15
  * @Description:
  */
+import { FC } from 'react'
+import { Outlet } from 'react-router-dom'
+import './ManageLayout.scss'
+
 const ManageLayout: FC = () => {
   return (
     <>

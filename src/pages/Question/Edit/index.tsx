@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { useParams } from 'react-router-dom'
 
 /*
  * @Author: chenjianfeng chenjianfeng9335@gmail.com
@@ -6,7 +7,9 @@ import { FC } from 'react'
  * @Description:
  */
 const Edit: FC = () => {
-  return <>这是Edit</>
+  const { id } = useParams()
+  console.log(id)
+  return <>这是Edit, id为{id}</>
 }
 
 export default Edit
