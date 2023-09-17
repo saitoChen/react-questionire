@@ -1,18 +1,19 @@
 import { FC } from 'react'
 import { Outlet } from 'react-router-dom'
-/*
- * @Author: chenjianfeng chenjianfeng9335@gmail.com
- * @Date: 2023-09-17 11:15:04
- * @Description:
- */
+import { Layout } from 'antd'
+import { headerStyle, contentStyle, footerStyle } from './common'
+const { Header, Footer, Content } = Layout
+
 const MainLayout: FC = () => {
   return (
     <>
-      <header>header</header>
-      <section className="main-layout__contain">
-        <Outlet />
-      </section>
-      <footer>footer</footer>
+      <Layout>
+        <Header style={headerStyle}>header</Header>
+        <Content style={contentStyle} className="main-layout__contain">
+          <Outlet />
+        </Content>
+        <Footer style={footerStyle}>Footer</Footer>
+      </Layout>
     </>
   )
 }
