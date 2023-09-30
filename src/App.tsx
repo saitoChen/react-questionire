@@ -8,8 +8,15 @@ import './App.css'
 
 import { RouterProvider } from 'react-router-dom'
 import routerConfig from './router/index'
+import { Provider } from 'react-redux'
+import store from './store/index'
+
 function App() {
-  return <RouterProvider router={routerConfig}></RouterProvider>
+  return (
+    <Provider store={store}>
+      <RouterProvider router={routerConfig}></RouterProvider>
+    </Provider>
+  )
 }
 
 export default App

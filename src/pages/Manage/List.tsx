@@ -3,10 +3,11 @@
  * @Date: 2023-09-16 21:34:11
  * @Description:
  */
-import { FC, useState } from 'react'
+import { FC, useState, useContext } from 'react'
 import QuestionCard from '../../components/QuestionCard'
 import questionList, { type QuestionItem } from '../../sourceData/questionList'
 import { useSearchParams } from 'react-router-dom'
+import { ThemeContext } from '../../Layouts/MainLayout'
 const List: FC = () => {
   const [list, setList] = useState(questionList)
   const [searchParams] = useSearchParams()
@@ -28,10 +29,11 @@ const List: FC = () => {
     ])
   }
 
+  const themeConf = useContext(ThemeContext)
   return (
     <>
       <header>
-        <p>问卷列表</p>
+        <p>问卷列表 {themeConf.theme.background}</p>
         <div>
           <label>
             搜索：
@@ -39,6 +41,7 @@ const List: FC = () => {
           </label>
         </div>
       </header>
+      <button onClick={() => themeConf.setThemeFn()}>切换主题</button>
       <section>
         {list.map((item: QuestionItem) => {
           return <QuestionCard info={item} key={item._id} />
