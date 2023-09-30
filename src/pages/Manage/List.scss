@@ -1,0 +1,15 @@
+.manage-list__wrapper {
+    padding: 0 20px;
+    .manage-list__header {
+        display: flex;
+        justify-content: space-between;
+    }
+    .manage-list__content {
+        max-height: 400px;
+        overflow: auto;
+
+        .ant-card-head {
+            background-color: #ddd;
+        }
+    }
+}

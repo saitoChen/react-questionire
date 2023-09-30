@@ -4,25 +4,30 @@
  * @Description:
  */
 import { FC } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, Link } from 'react-router-dom'
 import './ManageLayout.scss'
+import { Layout } from 'antd'
+const { Content, Sider } = Layout
+import { contentStyle, siderStyle } from './common'
 
 const ManageLayout: FC = () => {
   return (
     <>
-      <div className="manage-layout__container">
-        <div className="manage-layout__left">
-          <ul>
-            <li>创建问卷</li>
-            <li>我的问卷</li>
-            <li>星标问卷</li>
-            <li>回收站</li>
-          </ul>
-        </div>
-        <section className="manage-layout__right">
-          <Outlet />
-        </section>
-      </div>
+      <Layout className="manage-layout__container">
+        <Layout hasSider>
+          <Sider style={siderStyle} className="manage-layout__left">
+            <div className="manage-layout__left__menu">
+              <a>创建问卷</a>
+              <Link to="/manage/list">我的问卷</Link>
+              <Link to="/manage/star">星标问卷</Link>
+              <Link to="/manage/tresh">回收站</Link>
+            </div>
+          </Sider>
+          <Content style={contentStyle} className="manage-layout__right">
+            <Outlet />
+          </Content>
+        </Layout>
+      </Layout>
     </>
   )
 }

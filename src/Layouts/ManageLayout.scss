@@ -3,6 +3,11 @@
 
     .manage-layout__left {
         width: 200px;
+
+        .manage-layout__left__menu {
+            display: flex;
+            flex-direction: column;
+        }
     }
     .manage-layout__right {
         flex: 1

@@ -20,6 +20,7 @@ const QuestionCard: FC<QuestionCardProps> = ({ info }) => {
       <section>
         <div>{info.isStar}</div>
         <div>{info.isPublished ? '已发布' : '未发布'}</div>
+        <div>星标：{info.isStar ? '是' : '否'}</div>
       </section>
     </>
   )

@@ -1,12 +1,16 @@
 import { FC } from 'react'
+import { Button } from 'antd'
+import { useNavigate } from 'react-router-dom'
 
-/*
- * @Author: chenjianfeng chenjianfeng9335@gmail.com
- * @Date: 2023-09-17 11:15:04
- * @Description:
- */
 const Home: FC = () => {
-  return <>这是首页</>
+  const nav = useNavigate()
+  const toList = () => nav('/manage/list')
+  return (
+    <>
+      <div>这是首页</div>
+      <Button onClick={toList}>点击进入列表页</Button>
+    </>
+  )
 }
 
 export default Home

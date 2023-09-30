@@ -8,6 +8,11 @@ import QuestionCard from '../../components/QuestionCard'
 import questionList, { type QuestionItem } from '../../sourceData/questionList'
 import { useSearchParams } from 'react-router-dom'
 import { ThemeContext } from '../../Layouts/MainLayout'
+import { Button, Card, Typography } from 'antd'
+import './List.scss'
+
+const { Title } = Typography
+
 const List: FC = () => {
   const [list, setList] = useState(questionList)
   const [searchParams] = useSearchParams()
@@ -31,9 +36,9 @@ const List: FC = () => {
 
   const themeConf = useContext(ThemeContext)
   return (
-    <>
-      <header>
-        <p>问卷列表 {themeConf.theme.background}</p>
+    <div className="manage-list__wrapper">
+      <header className="manage-list__header">
+        <Title level={3}>问卷列表 {themeConf.theme.background}</Title>
         <div>
           <label>
             搜索：
@@ -41,15 +46,21 @@ const List: FC = () => {
           </label>
         </div>
       </header>
-      <button onClick={() => themeConf.setThemeFn()}>切换主题</button>
-      <section>
-        {list.map((item: QuestionItem) => {
-          return <QuestionCard info={item} key={item._id} />
-        })}
+      <section className="manage-list__content">
+        {list.length > 0 &&
+          list.map((item: QuestionItem) => {
+            return (
+              <Card title={item.title} style={{ marginTop: '20px' }}>
+                <QuestionCard info={item} key={item._id} />
+              </Card>
+            )
+          })}
+        <div>loadingmore...上滑加载更多</div>
       </section>
-      <button onClick={addQuestionire}>添加问卷</button>
-      <footer></footer>
-    </>
+      <Button type="primary" onClick={addQuestionire}>
+        添加问卷
+      </Button>
+    </div>
   )
 }
 
