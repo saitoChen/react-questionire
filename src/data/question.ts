@@ -26,7 +26,7 @@ export const componentsResponse: ResType = {
       props: {
         level: 1,
         text: '测试标题',
-        align: 'center',
+        align: 'start',
       },
     },
     {

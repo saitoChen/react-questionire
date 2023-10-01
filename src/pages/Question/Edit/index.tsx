@@ -13,8 +13,10 @@ import { resetComponents } from '../../../store/module/components'
 const Edit: FC = () => {
   const dispatch = useDispatch()
   const { componentList } = componentsResponse
+  let selectedId = ''
+  if (componentList.length > 0) selectedId = componentList[0]['fe_id']
   useEffect(() => {
-    dispatch(resetComponents({ componentList }))
+    dispatch(resetComponents({ componentList, selectedId }))
   })
 
   return (

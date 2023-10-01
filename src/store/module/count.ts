@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+export type CountType = {
+  count: number
+}
+
 export const countSlice = createSlice({
   name: 'count',
   initialState: {

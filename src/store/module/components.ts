@@ -10,10 +10,12 @@ export type ComponentInfoType = {
 }
 
 export type ComponentStateType = {
+  selectedId: string
   componentList: ComponentInfoType[]
 }
 
 const InitState: ComponentStateType = {
+  selectedId: '',
   componentList: [],
 }
 
@@ -26,9 +28,15 @@ export const ComponentsSlice = createSlice({
       state: ComponentStateType,
       action: PayloadAction<ComponentStateType>
     ) => (state = action.payload),
+    changeSelectedId: (
+      state: ComponentStateType,
+      action: PayloadAction<string>
+    ) => {
+      state.selectedId = action.payload
+    },
   },
 })
 
-export const { resetComponents } = ComponentsSlice.actions
+export const { resetComponents, changeSelectedId } = ComponentsSlice.actions
 
 export default ComponentsSlice.reducer

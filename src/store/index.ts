@@ -7,6 +7,14 @@ import { configureStore } from '@reduxjs/toolkit'
 import count from './module/count'
 import components from './module/components'
 
+import { CountType } from './module/count'
+import { ComponentStateType } from './module/components'
+
+export type StateType = {
+  count: CountType
+  components: ComponentStateType
+}
+
 export default configureStore({
   reducer: {
     count,
