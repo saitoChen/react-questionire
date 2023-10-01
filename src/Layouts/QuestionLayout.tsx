@@ -8,10 +8,17 @@ import { Outlet } from 'react-router-dom'
 const QuestionLayout: FC = () => {
   return (
     <>
-      <header>QuestionLayout</header>
-      <section className="main-layout__contain">
-        <Outlet />
-      </section>
+      <div
+        style={{
+          backgroundColor: '#f0f2f5',
+          boxSizing: 'border-box',
+          height: '100vh',
+        }}
+      >
+        <section style={{ height: '100vh' }} className="main-layout__contain">
+          <Outlet />
+        </section>
+      </div>
     </>
   )
 }

@@ -1,15 +1,42 @@
-import { FC } from 'react'
-import { useParams } from 'react-router-dom'
-
 /*
  * @Author: chenjianfeng chenjianfeng9335@gmail.com
- * @Date: 2023-09-17 11:15:04
+ * @Date: 2023-09-17 11:20:37
  * @Description:
  */
+import { FC, useEffect } from 'react'
+import './index.scss'
+import EditCanvas from './components/EditCanvas'
+import { componentsResponse } from '../../../data/question'
+import { useDispatch } from 'react-redux'
+import { resetComponents } from '../../../store/module/components'
+
 const Edit: FC = () => {
-  const { id } = useParams()
-  console.log(id)
-  return <>这是Edit, id为{id}</>
+  const dispatch = useDispatch()
+  const { componentList } = componentsResponse
+  useEffect(() => {
+    dispatch(resetComponents({ componentList }))
+  })
+
+  return (
+    <>
+      <div className="question-container">
+        <header>header</header>
+        <div className="container-wrapper">
+          <div className="content">
+            <div className="left">left</div>
+            <div className="main">
+              <div className="canvas-wrapper">
+                <div className="canvas-scroll">
+                  <EditCanvas />
+                </div>
+              </div>
+            </div>
+            <div className="right">rigth</div>
+          </div>
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default Edit
