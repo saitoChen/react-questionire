@@ -14,6 +14,7 @@ import {
 } from '../../../store/module/components'
 import LeftPane from './LeftPane'
 import RightPane from './RightPane'
+import HeaderComponent from './header'
 
 const Edit: FC = () => {
   const dispatch = useDispatch()
@@ -31,7 +32,9 @@ const Edit: FC = () => {
   return (
     <>
       <div className="question-container">
-        <header>header</header>
+        <header>
+          <HeaderComponent />
+        </header>
         <div className="container-wrapper">
           <div className="content">
             <div className="left">

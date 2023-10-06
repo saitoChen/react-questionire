@@ -1,0 +1,19 @@
+.header_wrapper {
+    display: flex;
+    padding: 12px 24px;
+    border: 1px solid #e8e8e8;
+
+    .left {
+        flex: 1;
+        text-align: left;
+    }
+
+    .right {
+        flex: 1;
+        text-align: right;
+    }
+
+    .main {
+        flex: 1;
+    }
+}
