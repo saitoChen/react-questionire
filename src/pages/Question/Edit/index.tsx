@@ -8,7 +8,11 @@ import './index.scss'
 import EditCanvas from './components/EditCanvas'
 import { componentsResponse } from '../../../data/question'
 import { useDispatch } from 'react-redux'
-import { resetComponents } from '../../../store/module/components'
+import {
+  resetComponents,
+  changeSelectedId,
+} from '../../../store/module/components'
+import LeftPane from './LeftPane'
 
 const Edit: FC = () => {
   const dispatch = useDispatch()
@@ -19,14 +23,20 @@ const Edit: FC = () => {
     dispatch(resetComponents({ componentList, selectedId }))
   })
 
+  const resetSelected = () => {
+    dispatch(changeSelectedId(''))
+  }
+
   return (
     <>
       <div className="question-container">
         <header>header</header>
         <div className="container-wrapper">
           <div className="content">
-            <div className="left">left</div>
-            <div className="main">
+            <div className="left">
+              <LeftPane />
+            </div>
+            <div className="main" onClick={resetSelected}>
               <div className="canvas-wrapper">
                 <div className="canvas-scroll">
                   <EditCanvas />

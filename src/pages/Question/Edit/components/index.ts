@@ -20,6 +20,20 @@ export type ComponentConfType = {
   defaultProps: ComponentPropsType
 }
 
+// 导出组件库组
+
+export const componentGroup = [
+  {
+    groupName: '文本显示',
+    components: [QuestionTitletConf],
+  },
+  {
+    groupName: '用户输入',
+    components: [QuestionInputConf],
+  },
+]
+
+// 全部组件配置列表
 const componentList: ComponentConfType[] = [
   QuestionInputConf,
   QuestionTitletConf,

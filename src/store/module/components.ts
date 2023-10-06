@@ -1,3 +1,8 @@
+/*
+ * @Author: chenjianfeng chenjianfeng9335@gmail.com
+ * @Date: 2023-10-01 14:25:13
+ * @Description:
+ */
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { QuestionInputDefaultProps } from '../../pages/Question/Edit/components/QuestionInput/QuestionInputDefaultProps'
 import { QuestionTitleDefaultProps } from '../../pages/Question/Edit/components/QuestionTitle/QuestionTitleDefaultProps'
@@ -34,9 +39,28 @@ export const ComponentsSlice = createSlice({
     ) => {
       state.selectedId = action.payload
     },
+    addComponent: (
+      state: ComponentStateType,
+      action: PayloadAction<ComponentInfoType>
+    ) => {
+      const newComponent = action.payload
+      const { selectedId, componentList } = state
+      const idx = componentList.findIndex((item) => item.fe_id === selectedId)
+
+      if (idx > -1) {
+        // 如果有选中的组件的化，插入到后面一项
+        componentList.splice(idx + 1, 0, newComponent)
+      } else {
+        componentList.push(newComponent)
+      }
+
+      // 同时默认选中新创建的组件
+      state.selectedId = newComponent.fe_id
+    },
   },
 })
 
-export const { resetComponents, changeSelectedId } = ComponentsSlice.actions
+export const { resetComponents, changeSelectedId, addComponent } =
+  ComponentsSlice.actions
 
 export default ComponentsSlice.reducer

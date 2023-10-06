@@ -1,3 +1,8 @@
+/*
+ * @Author: chenjianfeng chenjianfeng9335@gmail.com
+ * @Date: 2023-10-01 13:06:33
+ * @Description:
+ */
 import { FC } from 'react'
 import './index.scss'
 import useGetQuestionInfo from '../../../../../hooks/useGetQuestionInfo.ts'
@@ -25,7 +30,8 @@ const EditCanvas: FC = () => {
 
   const dispatch = useDispatch()
 
-  const changeSelected = (id: string) => {
+  const changeSelected = (e: React.MouseEvent, id: string) => {
+    e.stopPropagation()
     dispatch(changeSelectedId(id))
   }
 
@@ -42,7 +48,7 @@ const EditCanvas: FC = () => {
                 ? 'edit-component-wrapper selected'
                 : 'edit-component-wrapper'
             }
-            onClick={() => changeSelected(fe_id)}
+            onClick={(e) => changeSelected(e, fe_id)}
           >
             <div className="component">{getComponent(component)}</div>
           </div>
