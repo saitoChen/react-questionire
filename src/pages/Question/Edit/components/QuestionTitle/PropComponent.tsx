@@ -10,12 +10,22 @@ import { Form, Input, Select } from 'antd'
 const { Option } = Select
 
 const PropTitleComponent: FC<QuestionTitleDefaultProps> = (props) => {
-  const { text, level, align } = props
+  const { text, level, align, onChange } = props
+  const { useForm } = Form
+  const [form] = useForm()
+  const setValue = () => {
+    if (onChange) {
+      onChange(form.getFieldsValue())
+    }
+  }
+
   return (
     <Form
+      form={form}
       layout="vertical"
       name="QuestionInputForm"
       initialValues={{ text, level, align }}
+      onValuesChange={setValue}
     >
       <Form.Item
         label="text"
@@ -26,9 +36,9 @@ const PropTitleComponent: FC<QuestionTitleDefaultProps> = (props) => {
       </Form.Item>
       <Form.Item name="level" label="level">
         <Select placeholder="请选择层级" allowClear>
-          <Option value="1">1</Option>
-          <Option value="2">2</Option>
-          <Option value="3">3</Option>
+          <Option value={1}>1</Option>
+          <Option value={2}>2</Option>
+          <Option value={3}>3</Option>
         </Select>
       </Form.Item>
       <Form.Item name="align" label="level">

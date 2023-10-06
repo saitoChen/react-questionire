@@ -6,7 +6,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { QuestionInputDefaultProps } from '../../pages/Question/Edit/components/QuestionInput/QuestionInputDefaultProps'
 import { QuestionTitleDefaultProps } from '../../pages/Question/Edit/components/QuestionTitle/QuestionTitleDefaultProps'
-
+import { ComponentPropsType } from '../../pages/Question/Edit/components/index'
 export type ComponentInfoType = {
   fe_id: string
   type: string
@@ -57,10 +57,30 @@ export const ComponentsSlice = createSlice({
       // 同时默认选中新创建的组件
       state.selectedId = newComponent.fe_id
     },
+    changeComponent: (
+      state: ComponentStateType,
+      action: PayloadAction<{ id: string; newProps: ComponentPropsType }>
+    ) => {
+      const { componentList } = state
+      const needChangeComponent = componentList.find(
+        (item) => item.fe_id === action.payload.id
+      )
+
+      if (needChangeComponent) {
+        needChangeComponent.props = {
+          ...needChangeComponent.props,
+          ...action.payload.newProps,
+        }
+      }
+    },
   },
 })
 
-export const { resetComponents, changeSelectedId, addComponent } =
-  ComponentsSlice.actions
+export const {
+  resetComponents,
+  changeSelectedId,
+  addComponent,
+  changeComponent,
+} = ComponentsSlice.actions
 
 export default ComponentsSlice.reducer

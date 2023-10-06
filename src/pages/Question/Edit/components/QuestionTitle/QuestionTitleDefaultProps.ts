@@ -6,14 +6,9 @@
 export type QuestionTitleDefaultProps = {
   text?: string
   level?: 1 | 2 | 3
-  align?:
-    | 'start'
-    | 'end'
-    | 'left'
-    | 'right'
-    | 'center'
-    | 'justify'
-    | 'match-parent'
+  align?: 'start' | 'end' | 'center'
+
+  onChange?: (newProps: Omit<QuestionTitleDefaultProps, 'onChange'>) => void
 }
 
 export const QuestionTitleDefault: QuestionTitleDefaultProps = {

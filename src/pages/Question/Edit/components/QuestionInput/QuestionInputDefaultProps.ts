@@ -1,6 +1,7 @@
 export type QuestionInputDefaultProps = {
   title?: string
   placeholder?: string
+  onChange?: (newProps: Omit<QuestionInputDefaultProps, 'onChange'>) => void
 }
 
 export const QuestionInputDefault: QuestionInputDefaultProps = {
