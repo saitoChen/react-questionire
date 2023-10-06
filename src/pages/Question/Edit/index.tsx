@@ -13,6 +13,7 @@ import {
   changeSelectedId,
 } from '../../../store/module/components'
 import LeftPane from './LeftPane'
+import RightPane from './RightPane'
 
 const Edit: FC = () => {
   const dispatch = useDispatch()
@@ -43,7 +44,9 @@ const Edit: FC = () => {
                 </div>
               </div>
             </div>
-            <div className="right">rigth</div>
+            <div className="right">
+              <RightPane />
+            </div>
           </div>
         </div>
       </div>

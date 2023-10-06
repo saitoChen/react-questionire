@@ -6,36 +6,36 @@
 import { FC } from 'react'
 import { Tabs } from 'antd'
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons'
-import Libs from './components/ComponentLib'
-const LeftPane: FC = () => {
+import PropComponent from './PropComponent'
+const RightPane: FC = () => {
   const tabsItems = [
     {
-      key: 'componentLib',
+      key: 'props',
       label: (
         <span>
           <AppstoreOutlined />
-          组件库
+          属性
         </span>
       ),
       children: (
         <div>
-          <Libs />
+          <PropComponent />
         </div>
       ),
     },
     {
-      key: 'layers',
+      key: 'setting',
       label: (
         <span>
           <BarsOutlined />
-          图层
+          页面设置
         </span>
       ),
-      children: <div>图层</div>,
+      children: <div>页面设置</div>,
     },
   ]
 
   return <Tabs defaultActiveKey="props" items={tabsItems} />
 }
 
-export default LeftPane
+export default RightPane

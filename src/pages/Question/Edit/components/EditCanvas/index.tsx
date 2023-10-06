@@ -24,9 +24,7 @@ const getComponent = (componentInfo: ComponentInfoType) => {
 }
 
 const EditCanvas: FC = () => {
-  const { data } = useGetQuestionInfo()
-
-  const { componentList, selectedId } = data
+  const { componentList, selectedId } = useGetQuestionInfo()
 
   const dispatch = useDispatch()
 
